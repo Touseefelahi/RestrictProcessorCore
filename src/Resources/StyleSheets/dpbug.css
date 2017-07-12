@@ -1,0 +1,6 @@
+.date-picker-popup > * > .spinner {
+    -fx-spacing: 0.25em; /* 3 */
+    -fx-alignment: CENTER;
+    -fx-fill-height: false;
+    -fx-background-color: transparent; /* this line was added */
+}

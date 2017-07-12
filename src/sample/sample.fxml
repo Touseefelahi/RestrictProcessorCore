@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <VBox alignment="TOP_CENTER" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <children>
+            <HBox alignment="TOP_CENTER" VBox.vgrow="NEVER">
+               <children>
+                  <Separator layoutX="151.0" layoutY="10.0" opacity="0.0" prefHeight="11.0" prefWidth="121.0" HBox.hgrow="ALWAYS" />
+                  <Text fill="#4a3232" opacity="0.57" strokeType="OUTSIDE" strokeWidth="0.0" text="Restrict Processor Cores" textAlignment="CENTER" underline="true" wrappingWidth="140.13671875">
+                     <effect>
+                        <Lighting>
+                           <bumpInput>
+                              <Shadow />
+                           </bumpInput>
+                           <light>
+                              <Light.Distant />
+                           </light>
+                        </Lighting>
+                     </effect>
+                  </Text>
+                  <Separator opacity="0.0" prefHeight="11.0" prefWidth="108.0" HBox.hgrow="ALWAYS" />
+                  <ProgressIndicator fx:id="progressIndicator" nodeOrientation="RIGHT_TO_LEFT" prefHeight="8.0" prefWidth="20.0" stylesheets="@../Resources/StyleSheets/dpbug.css" visible="false" HBox.hgrow="NEVER">
+                     <effect>
+                        <ColorAdjust brightness="0.07" hue="0.3" />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="SW_RESIZE" />
+                     </cursor>
+                  </ProgressIndicator>
+               </children>
+            </HBox>
+            <VBox>
+               <children>
+                  <HBox alignment="TOP_CENTER" spacing="10.0">
+                     <children>
+                        <Button fx:id="buttonGetProcess" mnemonicParsing="false" onAction="#buttonGetProcessedClick" text="Get Processes" textAlignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#buttonSetAffinityClicked" text="Set Affinity" textAlignment="CENTER" />
+                        <Button mnemonicParsing="false" onAction="#buttonBackToNormalAffinityClicked" text="Back to Normal" textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="layoutHBoxCores" alignment="TOP_CENTER" prefHeight="36.0" spacing="5.0">
+                     <padding>
+                        <Insets bottom="2.0" left="5.0" right="5.0" top="2.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="2.0" top="2.0" />
+               </padding>
+            </VBox>
+            <TableView fx:id="tableView" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </children>
+</GridPane>
